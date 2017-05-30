@@ -1,8 +1,9 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
-
-
+var mongojs = require('mongojs');
+var db = mongojs('customerapp',['users']);
+var ObjectId = mongojs.ObjectId;
 var path = require('path');
 
 var app = express();
@@ -50,43 +51,22 @@ app.use(expressValidator({
 }));
 
 
-
-
-
-//JSON PARSING
-var people = [
-	{
-		id: 1,
-		firt_name: 'Jeff',
-		last_name : "Doe",
-		email: 'Jeffdoe@gmail.com'
-	},
-	{
-		id: 2,
-		firt_name: 'Sara',
-		last_name : "Doe",
-		email: 'Saradoe@gmail.com'
-	},
-	{
-		id: 3,
-		firt_name: 'Bob',
-		last_name : "Doe",
-		email: 'Bobdoe@gmail.com'
-	} 
-]
-
 app.get('/', function(req,res) {
-	var title = 'Customers';
-	res.render('indes',{
-		title : title,
-		users : people
-	});// body...
+
+	db.users.find(function(err,docs){
+		var title = 'Customers';
+		res.render('indes',{
+			title : title,
+			users : docs
+		});// body...
+	});
+
 });
 
 
 app.post('/user/add' , function(req,res){
 
-	req.checkBody('firt_name', 'First Name is Required').notEmpty();
+	req.checkBody('first_name', 'First Name is Required').notEmpty();
 	req.checkBody('last_name', 'Last Name is Required').notEmpty();
 	req.checkBody('email', 'Email is Required').notEmpty();
 
@@ -94,24 +74,44 @@ app.post('/user/add' , function(req,res){
 	var errors  = req.validationErrors();
 
 	if(errors){
-		var title = 'Customers';
-		res.render('indes',{
-			title : title,
-			users : people,
-			errors : errors
+
+			db.users.find(function(err,docs){
+			var title = 'Customers';
+			res.render('indes',{
+				title : title,
+				users : docs
+			});// body...
 		});
+
 	}else{
 
 		var newUser = {
-			firt_name : req.body.firt_name,
+			first_name : req.body.first_name,
 			last_name : req.body.last_name,
 			email : req.body.email
-	}
+		}
+
+		db.users.insert(newUser,function(err,result){
+			if(err){
+				console.log(err);
+			}else
+				res.redirect('/');
+		});
 
 		console.log("Success");
 	}
 });
 
+
+app.delete('/users/delete/:id', function(req,res){
+	console.log(req.params.id);
+	db.users.remove({ _id: ObjectId(req.params.id)},function(err,result){
+		if(err){
+			console.log(err);
+		}
+		res.redirect('/');
+	});
+});
 
 app.listen(3000,function 
 	(argument) {

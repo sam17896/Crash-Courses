@@ -18,7 +18,7 @@
 
 <label>First Name</label>
 <br>
-<input type="text" name="firt_name">
+<input type="text" name="first_name">
 <br> 
 <label>Last Name</label>
 <br>
@@ -35,7 +35,7 @@
 <h1><%= title %> </h1>
 <ul>
 <% users.forEach(function(user){ %>
-	<li><%= user.firt_name %> <%= user.last_name %> </li>
+	<li><%= user.first_name %> <%= user.last_name %> <a class='deleteUser' href ="#" data-id="<%=user._id%>"> Delete </a> </li>
 	
 <% }); %>
 </ul>
