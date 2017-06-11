@@ -42,6 +42,22 @@ app.post('/api/generes', function(req, res){
 });
 
 
+app.put('/api/generes/:_id', function(req, res){
+	var id = req.params._id;
+	var generes = req.body;
+	console.log('here');
+	Genre.updateGenre(id,generes,{}, function(err, generes){
+		if(err){
+			throw err;
+		} else {
+			res.json(generes)
+		}
+	});
+
+});
+
+
+
 app.get('/api/books', function(req, res){
 
 	Books.getBooks(function(err, books){

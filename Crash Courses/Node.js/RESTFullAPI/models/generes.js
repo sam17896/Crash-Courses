@@ -26,3 +26,12 @@ module.exports.getGenres = function (callback, limit){
 module.exports.addGenre = function (generes, callback){
 	Genre.create(generes, callback);	
 }
+
+
+module.exports.updateGenre = function (id,generes,options, callback){
+	var query = {_id: id};
+	var update = {
+		name : generes.name
+	}	
+	Genre.findOneAndUpdate(query, update, options,callback);
+}
