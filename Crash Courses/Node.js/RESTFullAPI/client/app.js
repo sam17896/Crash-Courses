@@ -8,9 +8,9 @@ myApp.config(function ($routeProvider) {
 	})
 	.when('/books',{
 		controller : 'BooksController',
-		templateUrl : 'views/books.html'
+		templateUrl : 'views/book.html'
 	})
-	.when('/books/details/:_id',{
+	.when('/books/details/:id',{
 		controller : 'BooksController',
 		templateUrl : 'views/bookDetail.html'
 	})
