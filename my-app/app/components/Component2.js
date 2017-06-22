@@ -18,11 +18,9 @@ export default class Component2 extends React.Component {
                     <Text></Text>
                 </View>
             </TouchableHighlight>
-            <TouchableOpacity style = {styles.v2} onPress={this.onPress}>
-                <View>
+                <View style = {styles.v2}>
                     <Text></Text>
                 </View>
-            </TouchableOpacity>
             <View style = {styles.v2}>
                 <Text></Text>
             </View>
