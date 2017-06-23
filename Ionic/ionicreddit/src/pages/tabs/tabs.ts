@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-import { HomePage } from '../home/home';
 import { RedditPage } from '../reddits/reddit';
 import { SettingPage } from '../settings/settings';
 import { AboutPage } from '../about/about';
