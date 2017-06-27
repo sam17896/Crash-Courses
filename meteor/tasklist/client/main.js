@@ -17,7 +17,8 @@ Template.tasks.events({
     
     Tasks.insert({
       name: name,
-      created_at : new Date()
+      created_at : new Date(),
+      userId: Meteor.userId()
     });
     
     
