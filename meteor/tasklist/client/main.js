@@ -15,11 +15,7 @@ Template.tasks.events({
   "submit .add-task" : function(event){
     var name = event.target.name.value;
     
-    Tasks.insert({
-      name: name,
-      created_at : new Date(),
-      userId: Meteor.userId()
-    });
+    Meteor.call('addTask', name);
     
     
     event.target.name.value = "";
@@ -27,8 +23,9 @@ Template.tasks.events({
   } , 
   "click .delete-task" : function(event){
     if(confirm("Are you sure you want to delete")){
-      Tasks.remove(this._id);
+      Meteor.call('deleteTask', this._id);
     }
     return false;
   }
 });
+
