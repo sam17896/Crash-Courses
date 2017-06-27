@@ -3,23 +3,23 @@
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
-  {{> info}}
+  
+  {{> tasks}}
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
+<template name="tasks">
+  <h1>Add Tasks</h1>
+  <form class="add-task">
+    <label>Tasks Name: </label>
+    <input type="text" name="name" placeholder="Add Task" />
+    <input type="submit" value="Submit" />
+  </form>
 
-<template name="info">
-  <h2>Learn Meteor!</h2>
-  <ul>
-    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
-    <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
-    <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
-    <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
-  </ul>
+  <hr/>
+  <h3>Tasks</h3>
+    <ul>
+      {{#each tasks}}
+        <li>{{name}} <a href="#" class="delete-task">X</a></li>
+      {{/each}}
+    </ul>
 </template>
