@@ -5,6 +5,8 @@ import './main.html';
 
 Tasks = new Mongo.Collection('tasks');
 
+Meteor.subscribe('tasks');
+
 Template.tasks.helpers({
   tasks : function(){
     return Tasks.find({}, {sort: {created_at: -1}});
