@@ -1,11 +1,8 @@
 Tasks = new Mongo.Collection('tasks');
 
 Meteor.publish('tasks' ,function(){
-  return Tasks.find();
+  return Tasks.find({userId : this.userId});
 });
-
-
-
 
 
 Meteor.methods({
