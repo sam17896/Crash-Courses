@@ -13,6 +13,7 @@
         <a href="#" class="brand-logo">NoteManager</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li class="nav-item">
+            {{> loginButtons}}
           </li>
         </ul>
       </div>
@@ -20,22 +21,27 @@
   </nav>
   <div class="container">
     <h1>Latest Notes</h1>
+    {{#if currentUser}}
     <ul class="collection">
       {{#each notes}}
         {{> note}}
       {{/each}}
     </ul>
+    {{else}}
+      <p>Please log in to manage Notes</p>
+    {{/if}}
   </div>
 
-
-  {{>add}}
+  {{#if currentUser}}
+    {{>add}}
+  {{/if}}
    <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
 </body>
 
 <template name="note">
   <li class="collection-item">
-    {{text}}
+    {{text}}: <strong>Added By {{username}}</strong>
     <a href="#" class="delete-note secondary-content"><i class="material-icons">close</i></a>
   </li>
 </template>
