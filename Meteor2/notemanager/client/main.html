@@ -1,25 +1,48 @@
 <head>
-  <title>notemanager</title>
+  <title>Note Manager</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+
+          
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <nav class="red">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">NoteManager</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li class="nav-item">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <h1>Latest Notes</h1>
+    <ul class="collection">
+      {{#each notes}}
+        {{> note}}
+      {{/each}}
+    </ul>
+  </div>
 
-  {{> hello}}
-  {{> info}}
+
+  {{>add}}
+   <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="note">
+  <li class="collection-item">{{text}}</li>
 </template>
 
-<template name="info">
-  <h2>Learn Meteor!</h2>
-  <ul>
-    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
-    <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
-    <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
-    <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
-  </ul>
+<template name="add">
+  <div class="container">
+    <h3>Add Note</h3>
+    <form class="add-form">
+      <input type="text" name="text" placeholder="Add Note">
+    </form>
+  </div>
+    
+        
 </template>
