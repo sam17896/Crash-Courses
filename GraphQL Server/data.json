@@ -1,22 +1,22 @@
 {
-    "customers" : [
-        {
-            "id":"1",
-            "name":"John Doe",
-            "email":"jdoe@gmail.com",
-            "age":35
-        },
-        {
-            "id":"2",
-            "name":"Steve Smith",
-            "email":"ssmith@gmail.com",
-            "age":45
-        },
-        {
-            "id":"3",
-            "name":"Sara Wilson",
-            "email":"swilson@gmail.com",
-            "age":25
-        }
-    ]
+  "customers": [
+    {
+      "id": "1",
+      "name": "Ahsan Sohail",
+      "email": "jdoe@gmail.com",
+      "age": 35
+    },
+    {
+      "id": "3",
+      "name": "Sara Wilson",
+      "email": "swilson@gmail.com",
+      "age": 25
+    },
+    {
+      "name": "Harry White",
+      "email": "hwhite@gmail.com",
+      "age": 32,
+      "id": "HJJx6NIwW"
+    }
+  ]
 }
