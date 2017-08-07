@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
+    integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw"
+    crossorigin="anonymous">
+    <title>Animate CSS</title>
+    <style>
+        #section-1{
+            animation-delay: 1s;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+        }
+        #section-2{
+            animation-delay: 2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="animated slideInDown text-center bg-primary text-white p-5">
+            <h1 class="display-4">Animate.CSS Sandbox</h1>
+        </header>
+        <section id="section-1" class="animated slideInLeft bg-faded p-5 my-3">
+            <h1>Section One</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla ad rem incidunt pariatur quibusdam, quo facere. Ipsam, amet autem qui odit dolore cupiditate vero. Sunt numquam, consequatur laudantium eligendi quia, dolorum dolores, quidem repellat voluptas iure ut perspiciatis, fuga. Iure.</p>
+        </section>
+        <section id="section-2" class="animated slideInRight bg-faded p-5 my-3">
+            <h1 id="anim-head">Section Two</h1>
+            <p id="anim-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla ad rem incidunt pariatur quibusdam, quo facere. Ipsam, amet autem qui odit dolore cupiditate vero. Sunt numquam, consequatur laudantium eligendi quia, dolorum dolores, quidem repellat voluptas iure ut perspiciatis, fuga. Iure.</p>
+            <button id="animatebtn" class="btn btn-primary p-3" style="width:100%">Animate</button>
+        </section>
+
+        <button id="animatebtn2" class="btn btn-primary p-3" style="width:100%">Animate</button>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js">
+    </script>
+    <script>
+        $(function(){
+            $('#animatebtn').click(function(){
+                animate('#anim-head', 'bounce');
+                animate('#anim-body','rubberBand');
+                return false;
+            });
+            
+            $('#animatebtn2').click(function(){
+                animate('header', 'slideOutUp');
+                setTimeout(function(){
+                    $('header').css('visibility', 'hidden');
+                });
+                return false;
+            });
+            
+            function animate(element,animation){
+                $(element).addClass('animated ' + animation);
+                var wait = setTimeout(function(){
+                    $(element).removeClass('animation ' + animation);
+                },1000);
+            }
+        })
+    </script>
+    
+</body>
+</html>
