@@ -1,18 +1,11 @@
-const {createElement} = React;
-const {render} = ReactDOM;
-
-
-const style = {
-    backgroundColor : 'orange',
-    color : 'white',
-    fontFamily : 'verdana'
-}
+import React from 'react'
+import { render } from 'react-dom'
+import { hello, goodbye } from './lib'
 
 render(
-    <h1 id='title'
-        className='header'
-        style={style}>
-        Hello World
-    </h1>,
-    document.getElementById('react-native')
+	<div>
+		{hello}
+		{goodbye}
+	</div>,
+	document.getElementById('react-container')
 )
