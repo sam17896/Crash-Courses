@@ -4,6 +4,9 @@ import {SkiDayCount} from './components/SkiDayCount'
 
 
 render(
-	<SkiDayCount />,
+	<SkiDayCount  total={50}
+					powder={10}
+					backcountry={20}
+						goal={100}/>,
 	document.getElementById('react-container')
 )
