@@ -1,31 +1,18 @@
 import React from 'react'
 import { render } from 'react-dom'
-import {SkiDayCount} from './components/SkiDayCount'
-import {SkiDayList} from './components/SkiDayList'
+import './stylesheets/ui.scss'
+import {App} from './components/App'
+import {Whoops404} from './components/Whoops404'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+
+
 
 render(
 // 	<SkiDayCount />,
-	<SkiDayList days={
-		[
-			{
-				resort : "Squaw Valley",
-				date : new Date("1/2/2016"),
-				powder : true,
-				backcountry : false
-			},
-			{
-				resort : "Kirkwood",
-				date : new Date("3/28/2016"),
-				powder : false,
-				backcountry : false
-			},
-			{
-				resort : "Mt. Tallac",
-				date : new Date("4/2/2016"),
-				powder : false,
-				backcountry : true
-			}
-		]
-	}/>,
+	<Router>
+		<div>
+			<Route exact={true} path="/" component={App}/>
+		</div>
+	</Router>,
 	document.getElementById('react-container')
 )
