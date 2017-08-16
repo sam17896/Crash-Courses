@@ -59,3 +59,31 @@ img {
     font-weight: bold;
     text-transform: uppercase;
 }
+
+.feature-content .row {
+    padding: 8rem 0;
+    overflow: hidden;
+}
+
+
+.feature-dark {
+    background: #262f36;
+    color: white;
+}
+
+.feature-dark h2 {
+    color: white;
+}
+
+
+.feature-content img {
+    margin-bottom: -8rem;
+}
+
+
+@media screen and (mid-width : 991px ) {
+    .feature-content .row {
+        display: flex;
+        align-items: center;
+    }
+}
