@@ -80,6 +80,33 @@ img {
     margin-bottom: -8rem;
 }
 
+.feature-alt{
+    background: #f0f0f0;
+}
+
+#feature-four .feature-content {
+    padding: 0;
+}
+
+#feature-five{
+    margin-top: 2rem;
+}
+
+#main-footer {
+    background: #262f36;
+    color: white;
+    padding: 6rem 0;
+    font-size : 0.8rem;
+}
+
+#main-footer h6 {
+    color : #718fa3;
+
+}
+
+#main-footer a {
+    color: #6c6f73;
+}
 
 @media screen and (mid-width : 991px ) {
     .feature-content .row {
