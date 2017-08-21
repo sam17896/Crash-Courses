@@ -106,3 +106,13 @@ ul {
         text-align: left;
     }
 }
+
+
+.alert {
+    text-align: center;
+    padding: 10px;
+    background: #79c879;
+    color: #fff;
+    margin-bottom: 20px;
+    display: none;
+}
