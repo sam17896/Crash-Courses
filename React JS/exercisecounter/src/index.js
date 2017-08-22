@@ -3,14 +3,18 @@ import { render } from 'react-dom'
 import './stylesheets/ui.scss'
 import { App } from './components/App'
 import { Whoops404 } from './components/Whoops404'
-import { Router, Route, hashHistory } from 'react-router'
+import {HashRouter, Route} from 'react-router-dom';
 
 window.React = React
 
 render(
-	<Router history={hashHistory}>
-		<Route path="/" component={App}/>
-		<Route path="*" component={Whoops404}/>
-	</Router>,
+	<HashRouter>
+       <div> 
+			<Route exact path="/" component={App}/>
+			<Route path="/list-days" component={App}/>
+			<Route path="/add-day" component={App}/>
+			<Route path="/*" component={Whoops404}/>
+		</div>
+	</HashRouter>,
 	document.getElementById('react-container')
 )

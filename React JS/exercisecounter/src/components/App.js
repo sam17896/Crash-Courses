@@ -1,6 +1,7 @@
 import React from 'react'
 import {SkiDayCount} from './SkiDayCount'
 import {SkiDayList} from './SkiDayList'
+import {AddDayForm} from './AddDayForm'
 import {BrowserRouter as Router , Route, Link} from 'react-router-dom'
 
 export class App extends React.Component{
@@ -43,11 +44,15 @@ export class App extends React.Component{
     render(){
         return(
             <div className="app">
-               <SkiDayList days={this.state.allSkiDays}/>
-               <SkiDayCount total={this.countDays()}
+            {(this.props.location.pathname === "/") ? 
+            <SkiDayCount total={this.countDays()}
                             powder={this.countDays("powder")}
                             backcountry={this.countDays("backcountry")} />
-            </div>
+            : (this.props.location.pathname==="/add-day") ?
+                <AddDayForm /> : <SkiDayList days={this.state.allSkiDays}/>
+             
+            }
+             </div>
         )
     }
 }
