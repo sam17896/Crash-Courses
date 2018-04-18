@@ -1,0 +1,10 @@
+#canvas {
+    margin:auto;
+    background: #ececec;
+    width: 100%;
+
+}
+
+.disabled{
+    color: #fff !important
+}
