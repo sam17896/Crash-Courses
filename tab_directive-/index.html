@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>Tabs Directive</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+    <script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body ng-app="app" ng-controller="appController">
+    <tabset vertical="true" type="custom" tabs="tabs" contentUrl="contentUrl" select="select(ahsan)">
+
+    </tabset>
+
+    {{contentUrl}}
+
+    <div ng-if="type != 'nav'" ng-include="contentUrl"></div>
+    <!-- <div ng-if="type == 'nav'" ui-view></div> -->
+</body>
+
+</html>

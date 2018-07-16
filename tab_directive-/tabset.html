@@ -1,0 +1,17 @@
+
+<div role="tabpanel">
+    <ul class="nav" ng-class="tabset.classes" role="tablist">
+        <li ng-if="tabset.type != 'nav'" role="presentation"
+        ng-repeat="tab in tabset.tabs"
+        ng-class="{'active':tab.active, 'disabled':tab.disabled}">
+
+        <a href=""
+          role="tab"
+          ng-click="tabset.select({'ahsan':tab})"><img src="{{tab.img}}" width="20px" height="20px"> {{tab.heading}}</a>
+      </li>
+
+      <li ng-repeat="tab in tabset.tabs" ng-if="tabset.type == 'nav' " ui-sref-active="active"><a ui-sref="{{tab.state}}"><i class="material-icons">{{tab.img}}</i>{{tab.heading}}</a></li>
+
+    </ul>
+</div>
+
