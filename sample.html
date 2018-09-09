@@ -1,0 +1,55 @@
+<div class="row">
+            <div class="col-lg-12 no-pad">
+                <table id="logTable" class="Grid-Table" st-table="displayedCollection" st-safe-src="rowCollection" style="width:100%;">
+                    <thead class="Grid-Table-display-block">
+                        <tr>
+                            <th st-delay="false" ng-repeat="col in columns" ng-show="col.show" st-sort="{{col.field}}" ng-bind="col.header"></th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="Grid-Table-scroll" set-height2 height="330">
+                        <tr dir-paginate="row in displayedCollection | itemsPerPage:options.pagesize" current-page="options.page" pagination-id="userList">
+                            <td ng-repeat="col in columns" ng-show="col.show" ng-bind="row[col.field]"></td>
+                            <td style="overflow:inherit;">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-danger background-btntheme gridtable-btn">Action</button>
+                                    <button type="button" class="btn btn-danger dropdown-toggle background-btntheme gridtable-btn" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                        <span class="sr-only"></span>
+                                    </button>
+                                    <ul class="dropdown-menu min-width150" role="menu">
+                                        <li><a href="javascript:void(0)" data-ng-click="edit(row)"><i class="fa fa-pencil-square-o fa-fw"></i>Edit</a></li>
+                                        <li><a href="javascript:void(0)" data-ng-click="showconfirm(row)"><i class="fa fa-trash-o fa-fw"></i>Delete</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr ng-show="displayedCollection.length<=0">
+                            <td colspan="20">No record found</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <div class="page-wrapper">
+                    <div class="number-pagination">
+                        <div class="pagination-div">
+                            <dir-pagination-controls pagination-id="userList"
+                                                     on-page-change="pageChanged(newPageNumber)"
+                                                     max-size="5"
+                                                     direction-links="true"
+                                                     auto-hide="false"
+                                                     boundary-links="true">
+                            </dir-pagination-controls>
+                        </div>
+                    </div>
+                    <div class="Page-size">
+                        <div class="pagecount-left">Page size</div>
+                        <div class="pagecount-right">
+                            <select style="display:block" ng-model="options.pagesize"
+                                    ng-options="obj as obj for obj in options.pagingOptions" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
