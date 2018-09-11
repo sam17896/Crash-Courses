@@ -5,10 +5,8 @@ import Navbar from './components/Navbar/Navbar';
 import Staff from './components/Pages/Staff';
 import Home from './components/Pages/Home';
 import Login from './components/Auth/Login';
-
+import Test from './components/Test/Test';
 import {Security, SecureRoute, ImplicitCallback} from '@okta/okta-react';
-
-
 
 class App extends Component {
 
@@ -30,6 +28,7 @@ class App extends Component {
       onAuthRequired={this.onAuthRequired} >
         <div className="App">
           <Navbar links={this.props.links}/>
+
           <div className="container">
             <Route exact path="/" component={Home} />
             <SecureRoute path="/staff" component={Staff} />
